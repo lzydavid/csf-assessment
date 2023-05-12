@@ -22,7 +22,7 @@ import ibf2022.batch2.csf.backend.models.Upload;
 @Repository
 public class ArchiveRepository {
 
-	private static final String ARCHIVE_COLLECTION = "archives"
+	private static final String ARCHIVE_COLLECTION = "archive"
 ;
 	@Autowired
 	private MongoTemplate mongoTemplate;
@@ -102,6 +102,7 @@ public class ArchiveRepository {
 			Bundle b = new Bundle();
 			b.setTitle(d.getString("title"));
 			b.setDate(d.getString("date"));
+			b.setId(d.getString("bundleId"));
 			bundles.add(b);
 		}
 

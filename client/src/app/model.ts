@@ -14,4 +14,5 @@ export interface BundleId{
 export interface Bundle {
     title:string
     date:string
+    id:string
 }
