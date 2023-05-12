@@ -30,7 +30,7 @@
                     Archive:
                 </td>
                 <td>
-                    <input type="file" accept=".zip" #file>
+                    <input type="file" accept=".zip" #file (change)="fileSubmit()">
                 </td>
             </tr>
             <tr>
@@ -38,7 +38,7 @@
                     <button type="button" [routerLink]="['']">Cancel</button>
                 </td>
                 <td>
-                    <button type="submit" [disabled]="form.invalid">Submit</button>
+                    <button type="submit" [disabled]="isFormInvalid()">Submit</button>
                 </td>
             </tr>
         </table>

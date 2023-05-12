@@ -50,10 +50,7 @@ public class ImageRepository {
             }
 
             String imageSize = zipEntry.getSize()+"";
-            System.out.println(fileName);
-            System.out.println(contentType);
-            
-            System.out.println(zipEntry.getSize());
+
             byte[] data = new byte[(int) zipEntry.getSize()];
             int bytesRead = 0;
             while (bytesRead < data.length) {
@@ -63,9 +60,6 @@ public class ImageRepository {
                 }
                 bytesRead += count;
             }
-            System.out.println(data);
-            System.out.println();
-
             Map<String, String> userData = new HashMap<>();
             userData.put("content-type",contentType);
             userData.put("image-size",imageSize);
@@ -87,10 +81,7 @@ public class ImageRepository {
             urls.add(url);
 
             zipEntry = zis.getNextEntry();
-        }
-
-        System.out.println(urls);
-    
+        }    
         return urls;
     }
 }

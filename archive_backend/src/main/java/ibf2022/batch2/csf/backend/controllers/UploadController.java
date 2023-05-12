@@ -1,8 +1,12 @@
 package ibf2022.batch2.csf.backend.controllers;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 import java.util.Optional;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
 import org.apache.http.HttpStatus;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +19,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
+
 
 import ibf2022.batch2.csf.backend.models.Bundle;
 import ibf2022.batch2.csf.backend.models.BundleId;
@@ -33,16 +38,9 @@ public class UploadController {
 
 	// TODO: Task 2, Task 3, Task 4
 	
-	@PostMapping(path = "/upload",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+	@PostMapping(path = "/upload",consumes = MediaType.MULTIPART_FORM_DATA_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> upload(@RequestPart MultipartFile file,@RequestPart String name,@RequestPart String title,@RequestPart String comment) throws IOException {
 
-		System.out.println("reached");
-
-		//String filename = file.getOriginalFilename();
-		System.out.println(name);
-		System.out.println(title);
-		System.out.println(comment);
-		System.out.println(file);
 
 		List<String> urls = imgRepo.upload(file);
 
@@ -68,7 +66,7 @@ public class UploadController {
 	
 
 	// TODO: Task 6
-	@GetMapping(path = "/bundle")
+	@GetMapping(path = "/bundle",produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> getBundles() {
 
 		List<Bundle> bundles = archRepo.getBundles();

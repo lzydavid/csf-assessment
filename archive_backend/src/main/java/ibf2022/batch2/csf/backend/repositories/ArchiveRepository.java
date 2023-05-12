@@ -22,16 +22,11 @@ import ibf2022.batch2.csf.backend.models.Upload;
 @Repository
 public class ArchiveRepository {
 
-	//TODO: Task 4
-	// You are free to change the parameter and the return type
-	// Do not change the method's name
-	// Write the native mongo query that you will be using in this method
-	//
-	//
 	private static final String ARCHIVE_COLLECTION = "archives"
 ;
 	@Autowired
 	private MongoTemplate mongoTemplate;
+	
 	// db.collection.insertOne({
 	// 	"bundleId" : "c63c06ca",
 	// 	"date" : "2023-05-12",
@@ -42,7 +37,6 @@ public class ArchiveRepository {
 	// 		...
 	// 	]
 	// })
-
 	public Optional<BundleId> recordBundle(String name,String title,String comment,List<String> urls) {
 
 		String str = "https://lzydavidibf2022.sgp1.digitaloceanspaces.com/";
@@ -72,13 +66,6 @@ public class ArchiveRepository {
 		return Optional.empty();
 	}
 
-	//TODO: Task 5
-	// You are free to change the parameter and the return type
-	// Do not change the method's name
-	// Write the native mongo query that you will be using in this method
-	//
-	//
-
 	// db.archives.find({
 	// 	bundleId:'{bundleId}'
 	// })
@@ -100,12 +87,9 @@ public class ArchiveRepository {
 		return u;
 	}
 
-	//TODO: Task 6
-	// You are free to change the parameter and the return type
-	// Do not change the method's name
-	// Write the native mongo query that you will be using in this method
-	//
-	//
+	// db.archives.find({}).sort(
+    // {title:-1},{date:1}
+	// )
 	public List<Bundle> getBundles(/* any number of parameters here */) {
 
 		List<Bundle> bundles = new ArrayList<>();

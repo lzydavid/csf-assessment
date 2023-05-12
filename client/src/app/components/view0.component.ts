@@ -17,7 +17,6 @@ export class View0Component implements OnInit {
       this.apiSvc.getBundles().then(
         (result) =>{
           this.bundles = result
-          console.info(this.bundles)
         }
         
       )
