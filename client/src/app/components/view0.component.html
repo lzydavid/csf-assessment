@@ -1,0 +1,15 @@
+<h2>Photo Storage</h2>
+<button type="button" [routerLink]="['/view1']" >Upload</button>
+<br>
+<table *ngFor="let b of bundles">
+    <tr>
+        <td>
+            {{b.title}}
+        </td>
+        <br>
+        <td>
+            {{b.date}}
+        </td>
+        &nbsp;
+    </tr>
+</table>

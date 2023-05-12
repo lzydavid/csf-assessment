@@ -1,0 +1,13 @@
+<div *ngIf="upload">
+    <h2>{{upload.title}} </h2>
+
+    <h4>by {{upload.name}} on {{upload.date}} </h4>
+
+    <p>{{upload.comments}} </p>
+
+    <div *ngFor="let p of upload.urls">
+    <img src={{p}}  width="200">
+    </div>
+
+<button type="button" [routerLink]="['/']">Back</button>
+</div>
